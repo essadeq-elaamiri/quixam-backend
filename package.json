@@ -1,0 +1,24 @@
+{
+  "name": "quixam",
+  "version": "1.0.0",
+  "description": "quizzes managment system ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/essadeq-elaamiri/quixam-backend.git"
+  },
+  "keywords": [
+    "quizzes",
+    "api",
+    "backend"
+  ],
+  "author": "Essadeq Elaamiri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/essadeq-elaamiri/quixam-backend/issues"
+  },
+  "homepage": "https://github.com/essadeq-elaamiri/quixam-backend#readme"
+}
