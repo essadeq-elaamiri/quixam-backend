@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-app": "node index.js"
+    "start-app": "node index.js",
+    "run-nodemon": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "mongoose": "^6.2.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

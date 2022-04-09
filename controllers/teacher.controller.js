@@ -1,5 +1,6 @@
-const db = require("../models/main");
+//https://www.bezkoder.com/node-express-mongodb-crud-rest-api/
 
+const db = require("../models/main");
 const teacherModel = db.teacherModel;
 
 // create and save

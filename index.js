@@ -16,9 +16,8 @@ db.mongoose
     console.log("Connected to the database");
   })
   .catch((err) => {
-    console
-      .log("Database Connection error! details:[" + err + "]")
-      .process.exit();
+    console.log("Database Connection error! details:[" + err + "]");
+    //.process.exit();
   });
 
 //
