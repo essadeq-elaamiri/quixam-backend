@@ -15,3 +15,9 @@ module.exports = (app) => {
   router.delete("/", students.deleteAll);
   app.use("/api/students", router);
 };
+
+// TODO:
+/*
+    /quizStudents/:quizID // students have the access to this quiz
+   
+*/

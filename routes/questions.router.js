@@ -15,3 +15,9 @@ module.exports = (app) => {
   router.delete("/", questions.deleteAll);
   app.use("/api/questions", router);
 };
+
+// TODO:
+/*
+    /quizQuestions/:quizID // 
+   
+*/

@@ -15,3 +15,9 @@ module.exports = (app) => {
   router.delete("/", answers.deleteAll);
   app.use("/api/answers", router);
 };
+
+// TODO:
+/*
+    /questionAnswers/:questionID // 
+   
+*/
