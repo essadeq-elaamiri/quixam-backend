@@ -6,25 +6,26 @@ const quizModel = db.studentModel;
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.title) {
-    res.status(400).send({ message: "Content can not be empty!" });
+    res.status(400).json({ message: "Content can not be empty!" });
     return;
   }
-  // Create a Tutorial
-  const tutorial = new Tutorial({
+  // TODO: Other validation
+  // Create a quiz
+  const quiz = new quizModel({
     title: req.body.title,
     description: req.body.description,
-    published: req.body.published ? req.body.published : false,
+    deadLine: req.body.deadLine,
+    time: req.body.time,
   });
-  // Save Tutorial in the database
-  tutorial
-    .save(tutorial)
+  // Save quiz to the database
+  quiz
+    .save()
     .then((data) => {
-      res.send(data);
+      res.json(data);
     })
     .catch((err) => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Tutorial.",
+      res.status(500).json({
+        message: err.message || "Some error occurred while creating the Quiz.",
       });
     });
 };
