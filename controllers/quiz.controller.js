@@ -1,6 +1,6 @@
 const db = require("../models/main");
 
-const quizModel = db.studentModel;
+const quizModel = db.quizModel;
 
 // Create and Save a new Quiz
 exports.create = (req, res) => {
@@ -30,9 +30,34 @@ exports.create = (req, res) => {
     });
 };
 // Retrieve all Quizs from the database.
-exports.findAll = (req, res) => {};
+exports.findAll = (req, res) => {
+  quizModel
+    .findAll()
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message: err.message || "Some error occurred while retrieving quizes.",
+      });
+    });
+};
 // Find a single Quiz with an id
-exports.findOne = (req, res) => {};
+exports.findOne = (req, res) => {
+  const id = req.params.id;
+  quizModel
+    .findById(id)
+    .then((data) => {
+      if (!data)
+        res.status(404).json({ message: "No Quiz found with id " + id });
+      else res.json(data);
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .send({ message: "Error retrieving Tutorial with id=" + id });
+    });
+};
 // Update a Quiz by the id in the request
 exports.update = (req, res) => {};
 // Delete a Quiz with the specified id in the request
