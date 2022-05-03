@@ -7,7 +7,7 @@ module.exports = (mongoose) => {
         title: String,
         description: String,
         deadLine: Date,
-        time: String,
+        duration: String,
       },
       { timestamps: true }
     )
