@@ -31,3 +31,7 @@
  */
 
 ```
+
+to do
+[ ] associations
+[ ] JWT autentication
