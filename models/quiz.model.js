@@ -4,10 +4,19 @@ module.exports = (mongoose) => {
     "quiz",
     mongoose.Schema(
       {
-        title: String,
-        description: String,
-        deadLine: Date,
-        time: String,
+        title: {
+          type: String,
+          required: [true, "Quiz must have a title !"],
+        },
+        description: {
+          type: String,
+        },
+        deadLine: {
+          type: Date,
+        },
+        time: {
+          type: String,
+        },
       },
       { timestamps: true }
     )
