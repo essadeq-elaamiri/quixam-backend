@@ -14,11 +14,11 @@ module.exports = (app) => {
   // Create a new Teacher
   router.delete("/", teacherController.deleteAll);
 
-  router.get("/:id/quizes", studentController.findStudentQuizes);
+  router.get("/:id/quizes", teacherController.findTeacherQuizes);
 
-  router.post("/:id/quiz", studentController.addQuizToStudent);
+  router.post("/:id/quiz", teacherController.addQuizToTeacher);
 
-  router.delete("/:id/quiz/:quizID", studentController.deleteQuizFromStudent);
+  router.delete("/:id/quiz/:quizID", teacherController.deleteQuizFromTeacher);
 
   app.use("/api/teachers", router);
 };

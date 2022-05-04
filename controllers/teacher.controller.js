@@ -207,4 +207,4 @@ exports.addQuizToTeacher = (req, res) => {
       });
     });
 };
-exports.deleteQuizFromStudent = (req, res) => {};
+exports.deleteQuizFromTeacher = (req, res) => {};
