@@ -175,5 +175,35 @@ exports.findStudentQuizes = (req, res) => {
     });
 };
 
-exports.addQuizToStudent = (req, res) => {};
+exports.addQuizToStudent = (req, res) => {
+  if (!req.body) {
+    return res.status(400).json({
+      message: "Data can not be empty!",
+    });
+  }
+  // TODO: __
+  // validate student
+  const id = req.params.id;
+  studentModel
+    .findByIdAndUpdate(
+      id,
+      { $addToSet: { quizes: req.body.quizID } },
+      { useFindAndModify: false }
+    )
+    .then((data) => {
+      if (!data) {
+        res.status(404).json({
+          message: `Cannot update Student with id=${id}. Maybe Student was not found!`,
+        });
+      } else res.json({ message: "Student was updated successfully." });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message:
+          "Error updating Student with id=" +
+          id +
+          ". Maybe Student was not found!",
+      });
+    });
+};
 exports.deleteQuizFromStudent = (req, res) => {};

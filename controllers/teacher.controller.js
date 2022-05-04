@@ -144,3 +144,67 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
+
+exports.findTeacherQuizes = (req, res) => {
+  const id = req.params.id;
+  teacherModel
+    .findById(id)
+    .then((teacher) => {
+      if (!teacher)
+        res.status(404).json({ message: "No Teacher found with id " + id });
+      else {
+        // find teacher
+        db.quizModel
+          .find({
+            _id: { $in: teacher.quizes },
+          })
+          .then((quizes) => {
+            res.json(quizes);
+          })
+          .catch((err) => {
+            res.status(500).json({
+              message: err,
+            });
+          });
+        // add teacher
+        // res.json(data);
+      }
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .json({ message: "Error retrieving Teacher with id=" + id });
+    });
+};
+exports.addQuizToTeacher = (req, res) => {
+  if (!req.body) {
+    return res.status(400).json({
+      message: "Data can not be empty!",
+    });
+  }
+  // TODO: __
+  // validate student
+  const id = req.params.id;
+  teacherModel
+    .findByIdAndUpdate(
+      id,
+      { $addToSet: { quizes: req.body.quizID } },
+      { useFindAndModify: false }
+    )
+    .then((data) => {
+      if (!data) {
+        res.status(404).json({
+          message: `Cannot update Teacher with id=${id}. Maybe Teacher was not found!`,
+        });
+      } else res.json({ message: "Teacher was updated successfully." });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message:
+          "Error updating Teacher with id=" +
+          id +
+          ". Maybe Teacher was not found!",
+      });
+    });
+};
+exports.deleteQuizFromStudent = (req, res) => {};
