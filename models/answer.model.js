@@ -12,6 +12,10 @@ module.exports = (mongoose) => {
           type: Boolean,
           required: true,
         },
+        question: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "question",
+        },
       },
       { timestamps: true }
     )

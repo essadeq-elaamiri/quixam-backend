@@ -16,6 +16,16 @@ module.exports = (mongoose) => {
           type: Number,
           min: -1, // if -1 no duration
         }, // seconds
+        answers: [
+          {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "answer",
+          },
+        ],
+        quiz: {
+          type: mongoose.Schema.Types.,
+          ref: "quiz",
+        },
       },
       { timestamps: true }
     )

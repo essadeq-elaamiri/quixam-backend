@@ -17,8 +17,26 @@ module.exports = (mongoose) => {
         time: {
           type: String,
         },
+        questions: [
+          {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "question",
+          },
+        ],
+
+        teacher: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "teacher",
+        },
+
+        students: [
+          {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "student",
+          },
+        ],
       },
-      { timestamps: true }
+      { timestamps: true } // auto createdAt and updatedAt
     )
   );
 

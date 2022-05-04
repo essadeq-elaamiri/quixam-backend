@@ -34,7 +34,14 @@ module.exports = (mongoose) => {
           },
           required: [true, "Password is required"],
         },
+        quizes: [
+          {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "quiz",
+          },
+        ],
       },
+
       { timestamps: true }
     )
   );

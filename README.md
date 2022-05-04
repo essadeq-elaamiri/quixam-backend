@@ -35,4 +35,4 @@
 to do
 
 - [ ] associations
-- [ ] JWT autentication
+- [ ] JWT authentication
