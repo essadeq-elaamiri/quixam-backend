@@ -23,7 +23,7 @@ module.exports = (mongoose) => {
           },
         ],
         quiz: {
-          type: mongoose.Schema.Types.,
+          type: mongoose.Schema.Types.ObjectId,
           ref: "quiz",
         },
       },

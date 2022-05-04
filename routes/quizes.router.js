@@ -13,12 +13,22 @@ module.exports = (app) => {
   router.delete("/:id", quizController.delete);
   // Create a new Quiz
   router.delete("/", quizController.deleteAll);
+  // manage associations
+  router.get("/:id/teacher", quizController.findQuizTeacher); // tested
+  router.get("/:id/students", quizController.findQuizStudents); // tested
+  router.get("/:id/questions", quizController.findQuizQuestions); // tested
+
+  // adding
+  router.post("/:id/teacher", quizController.associateTeacherToQuiz); // tested
+  router.post("/:id/student", quizController.addStudentToQuiz); // tested
+  router.post("/:id/question", quizController.addQuestionToQuiz); // tested
+
+  router.delete(
+    "/:id/teacher/:teacherID",
+    quizController.associateTeacherToQuiz
+  );
+  router.delete("/:id/student/:studentID", quizController.addStudentToQuiz);
+  router.delete("/:id/question/:questionID", quizController.addQuestionToQuiz);
+
   app.use("/api/quizes", router);
 };
-
-// TODO:
-/*
-    /teacherQuizes/:teacherID // quizez of the teacher
-    /studentsQuizes/:students // quizez of the student
-   
-*/
