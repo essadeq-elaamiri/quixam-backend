@@ -36,3 +36,4 @@ to do
 
 - [ ] associations
 - [ ] JWT authentication
+- [ ] more validation before adding associated models

@@ -13,6 +13,14 @@ module.exports = (app) => {
   router.delete("/:id", answerController.delete);
   // Create a new Answer
   router.delete("/", answerController.deleteAll);
+
+  router.get("/:id/question", answerController.findAnswerQuestion);
+  router.post("/:id/question", answerController.associateQuestionToAnswer);
+  router.delete(
+    "/:id/question/:questionID",
+    answerController.deleteQuestionFromAnswer
+  );
+
   app.use("/api/answers", router);
 };
 

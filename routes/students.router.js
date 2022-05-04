@@ -13,6 +13,13 @@ module.exports = (app) => {
   router.delete("/:id", studentController.delete);
   // Create a new Student
   router.delete("/", studentController.deleteAll);
+
+  router.get("/:id/quizes", studentController.findStudentQuizes);
+
+  router.post("/:id/quiz", studentController.addQuizToStudent);
+
+  router.delete("/:id/quiz/:quizID", studentController.deleteQuizFromStudent);
+
   app.use("/api/students", router);
 };
 

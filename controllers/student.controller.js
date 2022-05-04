@@ -143,4 +143,37 @@ exports.deleteAll = (req, res) => {
     });
 };
 // Find all quiz Students
-exports.findQuizStudents = (req, res) => {};
+exports.findStudentQuizes = (req, res) => {
+  const id = req.params.id;
+  studentModel
+    .findById(id)
+    .then((student) => {
+      if (!student)
+        res.status(404).json({ message: "No Student found with id " + id });
+      else {
+        // find teacher
+        db.quizModel
+          .find({
+            _id: { $in: student.quizes },
+          })
+          .then((quizes) => {
+            res.json(quizes);
+          })
+          .catch((err) => {
+            res.status(500).json({
+              message: err,
+            });
+          });
+        // add teacher
+        // res.json(data);
+      }
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .json({ message: "Error retrieving Student with id=" + id });
+    });
+};
+
+exports.addQuizToStudent = (req, res) => {};
+exports.deleteQuizFromStudent = (req, res) => {};

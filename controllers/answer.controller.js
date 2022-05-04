@@ -1,4 +1,5 @@
 const db = require("../models/main");
+const questionModel = require("../models/question.model");
 
 const answerModel = db.answerModel;
 
@@ -139,4 +140,63 @@ exports.deleteAll = (req, res) => {
     });
 };
 // Find all question Answers
-exports.findQuestionAnswers = (req, res) => {};
+exports.findAnswerQuestion = (req, res) => {
+  const id = req.params.id;
+  answerModel
+    .findById(id)
+    .then((answer) => {
+      if (!answer)
+        res.status(404).json({ message: "No Answer found with id " + id });
+      else {
+        // find teacher
+        db.questionModel
+          .findById(answer.question)
+          .then((question) => {
+            res.json(question);
+          })
+          .catch((err) => {
+            res.status(500).json({
+              message: "Error retrieving Question with id=" + quiz.teacher,
+            });
+          });
+        // add teacher
+        // res.json(data);
+      }
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .json({ message: "Error retrieving Answer with id=" + id });
+    });
+};
+exports.associateQuestionToAnswer = (req, res) => {
+  if (!req.body) {
+    return res.status(400).json({
+      message: "Data can not be empty!",
+    });
+  }
+  // TODO: __
+  const id = req.params.id;
+  answerModel
+    .findByIdAndUpdate(
+      id,
+      { question: req.body.questionID },
+      { useFindAndModify: false }
+    )
+    .then((data) => {
+      if (!data) {
+        res.status(404).json({
+          message: `Cannot update Answer with id=${id}. Maybe Answer was not found!`,
+        });
+      } else res.json({ message: "Answer was updated successfully." });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message:
+          "Error updating Answer with id=" +
+          id +
+          ". Maybe Answer was not found!",
+      });
+    });
+};
+exports.deleteQuestionFromAnswer = (req, res) => {};
