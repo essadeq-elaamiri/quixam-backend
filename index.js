@@ -43,7 +43,7 @@ require("./routes/teachers.router")(app);
 require("./routes/students.router")(app);
 //require("./routes/questions.router")(app);
 //require("./routes/quizes.router")(app);
-//require("./routes/answers.router")(app);
+require("./routes/answers.router")(app);
 
 // TODO: using .env
 // set port, listen for requests

@@ -2,17 +2,17 @@ module.exports = (app) => {
   const answerController = require("../controllers/answer.controller");
   var router = require("express").Router();
   // Create a new Answer
-  router.post("/", answers.create);
+  router.post("/", answerController.create);
   // Retrieve all Answers
-  router.get("/", answers.findAll);
+  router.get("/", answerController.findAll);
   // Retrieve a single Answer with id
-  router.get("/:id", answers.findOne);
+  router.get("/:id", answerController.findOne);
   // Update a Answer with id
-  router.put("/:id", answers.update);
+  router.put("/:id", answerController.update);
   // Delete a Answer with id
-  router.delete("/:id", answers.delete);
+  router.delete("/:id", answerController.delete);
   // Create a new Answer
-  router.delete("/", answers.deleteAll);
+  router.delete("/", answerController.deleteAll);
   app.use("/api/answers", router);
 };
 
