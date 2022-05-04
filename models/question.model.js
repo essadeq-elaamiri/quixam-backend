@@ -12,7 +12,10 @@ module.exports = (mongoose) => {
           type: Number,
           required: true,
         },
-        duration: Number, // seconds
+        duration: {
+          type: Number,
+          min: -1, // if -1 no duration
+        }, // seconds
       },
       { timestamps: true }
     )

@@ -5,39 +5,141 @@ const questionModel = db.questionModel;
 // Create and Save a new Question
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.title) {
-    res.status(400).json({ message: "Content can not be empty!" });
-    return;
-  }
+
   // TODO: Other validation
-  // Create a quiz
-  const quiz = new quizModel({
-    title: req.body.title,
-    description: req.body.description,
-    deadLine: req.body.deadLine,
-    time: req.body.time,
+  // Create a question
+  const question = new questionModel({
+    content: req.body.content,
+    score: req.body.score,
+    duration: req.body.duration,
   });
-  // Save quiz to the database
-  quiz
+  // Save question to the database
+  question
     .save()
     .then((data) => {
       res.json(data);
     })
     .catch((err) => {
       res.status(500).json({
-        message: err.message || "Some error occurred while creating the Quiz.",
+        message:
+          err.message || "Some error occurred while creating the Question.",
       });
     });
 };
 // Retrieve all Questions from the database.
-exports.findAll = (req, res) => {};
+exports.findAll = (req, res) => {
+  let page = req.query.page ? req.query.page : 0;
+  let size = req.query.size ? req.query.size : 5;
+  questionModel
+    .find({}, null, { skip: page * size, limit: size })
+    .then((data) => {
+      questionModel
+        .count({})
+        .then((count) => {
+          const _data = { data: data };
+          _data.page = page;
+          _data.coutPerPage = size;
+          _data.total = count;
+
+          res.json(_data);
+        })
+        .catch((err) => {
+          res.status(500).json({
+            message:
+              err.message || "Some error occurred while counting records.",
+          });
+        });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message:
+          err.message ||
+          "Some error occurred while retrieving the Questions list.",
+      });
+    });
+};
 // Find a single Question with an id
-exports.findOne = (req, res) => {};
+exports.findOne = (req, res) => {
+  const id = req.params.id;
+  questionModel
+    .findById(id)
+    .then((data) => {
+      if (!data)
+        res.status(404).json({ message: "No Question found with id " + id });
+      else res.json(data);
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .json({ message: "Error retrieving Question with id=" + id });
+    });
+};
 // Update a Question by the id in the request
-exports.update = (req, res) => {};
+exports.update = (req, res) => {
+  if (!req.body) {
+    return res.status(400).json({
+      message: "Update data can not be empty!",
+    });
+  }
+  const id = req.params.id;
+  questionModel
+    .findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    .then((data) => {
+      if (!data) {
+        res.status(404).json({
+          message: `Cannot update Question with id=${id}. Maybe Question was not found!`,
+        });
+      } else res.json({ message: "Question was updated successfully." });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message:
+          "Error updating Question with id=" +
+          id +
+          ". Maybe Question was not found!",
+      });
+    });
+};
 // Delete a Question with the specified id in the request
-exports.delete = (req, res) => {};
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  questionModel
+    .findByIdAndRemove(id)
+    .then((data) => {
+      if (!data) {
+        res.status(404).json({
+          message: `Cannot delete Question with id=${id}. Maybe it was not found!`,
+        });
+      } else {
+        res.json({
+          message: "Question was deleted successfully!",
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message:
+          "Could not delete Question with id=" +
+          id +
+          ". Maybe it was not found!",
+      });
+    });
+};
 // Delete all Questions from the database.
-exports.deleteAll = (req, res) => {};
+exports.deleteAll = (req, res) => {
+  questionModel
+    .deleteMany({})
+    .then((data) => {
+      res.json({
+        message: `${data.deletedCount} Question records were deleted successfully!`,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message:
+          err.message || "Some error occurred while removing all records.",
+      });
+    });
+};
 // Find all quiz Questions
 exports.findQuizQuestions = (req, res) => {};
