@@ -226,6 +226,7 @@ exports.findQuizQuestions = (req, res) => {
       res.status(500).json({ message: "Error retrieving Quiz with id=" + id });
     });
 };
+/*
 exports.addQuizQuestions = (req, res) => {
   const id = req.params.id;
   quizModel
@@ -252,7 +253,7 @@ exports.addQuizQuestions = (req, res) => {
     .catch((err) => {
       res.status(500).json({ message: "Error retrieving Quiz with id=" + id });
     });
-};
+};*/
 exports.associateTeacherToQuiz = (req, res) => {
   if (!req.body) {
     return res.status(400).json({

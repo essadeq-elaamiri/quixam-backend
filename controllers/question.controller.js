@@ -141,5 +141,127 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
+
 // Find all quiz Questions
-exports.findQuizQuestions = (req, res) => {};
+exports.findQuestionQuiz = (req, res) => {
+  const id = req.params.id;
+  questionModel
+    .findById(id)
+    .then((question) => {
+      if (!question)
+        res.status(404).json({ message: "No Question found with id " + id });
+      else {
+        // find teacher
+        db.quizModel
+          .findById(question.quiz)
+          .then((quiz) => {
+            res.json(quiz);
+          })
+          .catch((err) => {
+            res.status(500).json({
+              message: "Error retrieving Quiz with id=" + quiz.teacher,
+            });
+          });
+        // add teacher
+        // res.json(data);
+      }
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .json({ message: "Error retrieving Question with id=" + id });
+    });
+};
+exports.findQuestionAnswers = (req, res) => {
+  const id = req.params.id;
+  questionModel
+    .findById(id)
+    .then((question) => {
+      if (!question)
+        res.status(404).json({ message: "No Question found with id " + id });
+      else {
+        // find teacher
+        db.answerModel
+          .find({
+            _id: { $in: question.answers },
+          })
+          .then((answers) => {
+            res.json(answers);
+          })
+          .catch((err) => {
+            res.status(500).json({
+              message: err,
+            });
+          });
+        // add teacher
+        // res.json(data);
+      }
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .json({ message: "Error retrieving Question with id=" + id });
+    });
+};
+exports.associateQuizToQuestion = (req, res) => {
+  if (!req.body) {
+    return res.status(400).json({
+      message: "Data can not be empty!",
+    });
+  }
+  // TODO: __
+  const id = req.params.id;
+  questionModel
+    .findByIdAndUpdate(
+      id,
+      { quiz: req.body.quizID },
+      { useFindAndModify: false }
+    )
+    .then((data) => {
+      if (!data) {
+        res.status(404).json({
+          message: `Cannot update Question with id=${id}. Maybe Quiz was not found!`,
+        });
+      } else res.json({ message: "Question was updated successfully." });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message:
+          "Error updating Question with id=" +
+          id +
+          ". Maybe Question was not found!",
+      });
+    });
+};
+exports.addAnswerToQuestion = (req, res) => {
+  if (!req.body) {
+    return res.status(400).json({
+      message: "Data can not be empty!",
+    });
+  }
+  // TODO: __
+  const id = req.params.id;
+  questionModel
+    .findByIdAndUpdate(
+      id,
+      { $addToSet: { answers: req.body.answerID } },
+      { useFindAndModify: false }
+    )
+    .then((data) => {
+      if (!data) {
+        res.status(404).json({
+          message: `Cannot update Question with id=${id}. Maybe Quiz was not found!`,
+        });
+      } else res.json({ message: "Quiz was updated successfully." });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message:
+          "Error updating Question with id=" +
+          id +
+          ". Maybe Quiz was not found!",
+      });
+    });
+};
+exports.deleteQuizFromQuestion = (req, res) => {};
+exports.deleteAnswerFromQuestion = (req, res) => {};
