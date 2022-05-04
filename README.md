@@ -33,5 +33,6 @@
 ```
 
 to do
-[ ] associations
-[ ] JWT autentication
+
+- [ ] associations
+- [ ] JWT autentication
