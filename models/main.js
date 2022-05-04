@@ -10,10 +10,10 @@ db.mongoose = mongoose;
 db.url = dbConfig.url;
 
 // models
-db.teacherModel = require("./teacher.model");
-db.questionModel = require("./question.model");
-db.answerModel = require("./answer.model");
-db.quizModel = require("./quiz.model");
-db.studentModel = require("./student.model");
+db.teacherModel = require("./teacher.model")(mongoose);
+db.questionModel = require("./question.model")(mongoose);
+db.answerModel = require("./answer.model")(mongoose);
+db.quizModel = require("./quiz.model")(mongoose);
+db.studentModel = require("./student.model")(mongoose);
 
 module.exports = db;

@@ -2,17 +2,17 @@ module.exports = (app) => {
   const studentController = require("../controllers/student.controller");
   var router = require("express").Router();
   // Create a new Student
-  router.post("/", students.create);
+  router.post("/", studentController.create);
   // Retrieve all Students
-  router.get("/", students.findAll);
+  router.get("/", studentController.findAll);
   // Retrieve a single Student with id
-  router.get("/:id", students.findOne);
+  router.get("/:id", studentController.findOne);
   // Update a Student with id
-  router.put("/:id", students.update);
+  router.put("/:id", studentController.update);
   // Delete a Student with id
-  router.delete("/:id", students.delete);
+  router.delete("/:id", studentController.delete);
   // Create a new Student
-  router.delete("/", students.deleteAll);
+  router.delete("/", studentController.deleteAll);
   app.use("/api/students", router);
 };
 

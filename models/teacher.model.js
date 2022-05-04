@@ -28,7 +28,7 @@ module.exports = (mongoose) => {
           type: String,
           validate: {
             validator: function (value) {
-              return value.length() > 3;
+              return value.length > 3;
             },
             message: (props) => `Password must be longer than 3 characters !`,
           },

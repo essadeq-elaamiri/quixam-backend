@@ -39,6 +39,12 @@ app.get("/", (req, res) => {
   res.json({ message: "Geo" });
 });
 
+require("./routes/teachers.router")(app);
+require("./routes/students.router")(app);
+//require("./routes/questions.router")(app);
+//require("./routes/quizes.router")(app);
+//require("./routes/answers.router")(app);
+
 // TODO: using .env
 // set port, listen for requests
 const PORT = process.env.PORT || 8000;
