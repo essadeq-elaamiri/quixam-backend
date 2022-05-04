@@ -34,6 +34,21 @@
 
 to do
 
-- [ ] associations
+- [x] associations
 - [ ] JWT authentication
 - [ ] more validation before adding associated models
+
+### adding JWT
+
+![jwt](https://www.bezkoder.com/wp-content/uploads/2019/10/in-depth-introduction-jwt-token-based-authentication.png)
+![jwt_2](https://www.bezkoder.com/wp-content/uploads/2020/01/node-js-jwt-authentication-mysql-flow.png)
+
+- `npm install jsonwebtoken`
+
+```js
+const jwt = require("jsonwebtoken");
+...
+
+```
+
+[link](https://www.bezkoder.com/node-js-mongodb-auth-jwt/#Define_Routes)

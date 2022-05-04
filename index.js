@@ -1,6 +1,7 @@
 // setup server
 const express = require("express");
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
 //cors provides Express middleware to enable CORS with various options.
 
 // init express
@@ -36,8 +37,43 @@ app.use(express.urlencoded({ extended: true }));
 
 // rourtes
 app.get("/", (req, res) => {
-  res.json({ message: "Geo" });
+  res.json({ message: "go to /api/x" });
 });
+
+// login
+app.post("/api/auth/login", (req, res) => {
+  // TODO: getting user from database, do validations
+  const user = {
+    id: 333,
+    email: "teacher@gmail.com",
+    password: "OOOPP",
+  };
+
+  jwt.sign({ user }, "secKey", (err, token) => {
+    res.json({
+      token,
+    });
+  });
+});
+
+// auth
+function verifyToken(req, res, next) {
+  // get auth header value
+  const bearerHeader = req.headers["authorization"];
+  if (typeof bearerHeader !== undefined) {
+    // to next
+    // split at the space
+    // bearer <access-token>
+    const bearer = bearerHeader.split(" ");
+    const token = bearer[1];
+    req.token = token;
+    // call next middleware
+    next();
+  } else {
+    // Forbidden
+    res.status(403).json({ message: "Access denied" });
+  }
+}
 
 require("./routes/teachers.router")(app);
 require("./routes/students.router")(app);
