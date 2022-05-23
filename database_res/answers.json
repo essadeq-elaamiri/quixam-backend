@@ -1,0 +1,108 @@
+[{
+  "_id": {
+    "$oid": "627257c4cfdfc4d54460d8ac"
+  },
+  "content": "bla answer 2",
+  "isTrue": true,
+  "createdAt": {
+    "$date": "2022-05-04T10:39:00.986Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T14:06:40.648Z"
+  },
+  "__v": 0,
+  "question": {
+    "$oid": "62725a1497b0460299b956ea"
+  }
+},{
+  "_id": {
+    "$oid": "627257c9cfdfc4d54460d8ae"
+  },
+  "content": "bla answer 3",
+  "isTrue": true,
+  "createdAt": {
+    "$date": "2022-05-04T10:39:05.393Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:39:05.393Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627257d2cfdfc4d54460d8b0"
+  },
+  "content": "bla answer 4",
+  "isTrue": false,
+  "createdAt": {
+    "$date": "2022-05-04T10:39:14.218Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:39:14.218Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627257d5cfdfc4d54460d8b2"
+  },
+  "content": "bla answer 5",
+  "isTrue": false,
+  "createdAt": {
+    "$date": "2022-05-04T10:39:17.985Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:39:17.985Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627257d9cfdfc4d54460d8b4"
+  },
+  "content": "bla answer 7",
+  "isTrue": false,
+  "createdAt": {
+    "$date": "2022-05-04T10:39:21.546Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:39:21.546Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627257dccfdfc4d54460d8b6"
+  },
+  "content": "bla answer 8",
+  "isTrue": false,
+  "createdAt": {
+    "$date": "2022-05-04T10:39:24.745Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:39:24.745Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627257e0cfdfc4d54460d8b8"
+  },
+  "content": "bla answer 77",
+  "isTrue": false,
+  "createdAt": {
+    "$date": "2022-05-04T10:39:28.426Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:39:28.426Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627257e4cfdfc4d54460d8ba"
+  },
+  "content": "bla answer OO",
+  "isTrue": false,
+  "createdAt": {
+    "$date": "2022-05-04T10:39:32.133Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:39:32.133Z"
+  },
+  "__v": 0
+}]

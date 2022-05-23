@@ -1,0 +1,156 @@
+[{
+  "_id": {
+    "$oid": "627254d7aa35d36c5c1b2b83"
+  },
+  "firstname": "ali",
+  "lastname": "asma",
+  "email": "loubna@gmail.com",
+  "password": "password",
+  "createdAt": {
+    "$date": "2022-05-04T10:26:31.678Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T14:25:38.200Z"
+  },
+  "__v": 0,
+  "quizes": [
+    {
+      "$oid": "62725c788e92aab06719995d"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "627254dcaa35d36c5c1b2b85"
+  },
+  "firstname": "ahmed",
+  "lastname": "asma",
+  "email": "loubna@gmail.com",
+  "password": "password",
+  "createdAt": {
+    "$date": "2022-05-04T10:26:36.060Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:26:36.060Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627254e2aa35d36c5c1b2b87"
+  },
+  "firstname": "safae",
+  "lastname": "asma",
+  "email": "loubna@gmail.com",
+  "password": "password",
+  "createdAt": {
+    "$date": "2022-05-04T10:26:42.039Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:26:42.039Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627254e8aa35d36c5c1b2b89"
+  },
+  "firstname": "lamyae",
+  "lastname": "asma",
+  "email": "loubna@gmail.com",
+  "password": "password",
+  "createdAt": {
+    "$date": "2022-05-04T10:26:48.174Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:26:48.174Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627254edaa35d36c5c1b2b8b"
+  },
+  "firstname": "hassan",
+  "lastname": "asma",
+  "email": "loubna@gmail.com",
+  "password": "password",
+  "createdAt": {
+    "$date": "2022-05-04T10:26:53.124Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:26:53.124Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627254f3aa35d36c5c1b2b8d"
+  },
+  "firstname": "samira",
+  "lastname": "asma",
+  "email": "loubna@gmail.com",
+  "password": "password",
+  "createdAt": {
+    "$date": "2022-05-04T10:26:59.457Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:26:59.457Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627254faaa35d36c5c1b2b8f"
+  },
+  "firstname": "aziz",
+  "lastname": "asma",
+  "email": "loubna@gmail.com",
+  "password": "password",
+  "createdAt": {
+    "$date": "2022-05-04T10:27:06.668Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:27:06.668Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627254ffaa35d36c5c1b2b91"
+  },
+  "firstname": "lamine",
+  "lastname": "asma",
+  "email": "loubna@gmail.com",
+  "password": "password",
+  "createdAt": {
+    "$date": "2022-05-04T10:27:11.650Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:27:11.650Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62725506aa35d36c5c1b2b93"
+  },
+  "firstname": "rachid",
+  "lastname": "asma",
+  "email": "loubna@gmail.com",
+  "password": "password",
+  "createdAt": {
+    "$date": "2022-05-04T10:27:18.905Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:27:18.905Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6272550caa35d36c5c1b2b95"
+  },
+  "firstname": "rassim",
+  "lastname": "asma",
+  "email": "loubna@gmail.com",
+  "password": "password",
+  "createdAt": {
+    "$date": "2022-05-04T10:27:24.529Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-04T10:27:24.529Z"
+  },
+  "__v": 0
+}]
