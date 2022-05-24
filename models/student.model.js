@@ -38,6 +38,18 @@ module.exports = (mongoose) => {
           {
             type: mongoose.Schema.Types.ObjectId,
             ref: "quiz",
+            passedAt: {
+              type: Date,
+              required: [true, "Must set quiz passing date!"],
+            },
+            duration: {
+              type: Number,
+              require: false, // just to not be hard to deal with
+            },
+            score: {
+              type: Number,
+              require: [true, "A quiz passed? without score? seriously?"],
+            },
           },
         ],
       },
