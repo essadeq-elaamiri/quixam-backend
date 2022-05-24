@@ -1,3 +1,4 @@
+const { mongoose } = require("../models/main");
 const db = require("../models/main");
 
 const studentQuizModel = db.studentQuizModel;
@@ -31,19 +32,22 @@ exports.setQuizToStudent = (req, res) => {
     });
   // is quiz exist
   db.quizModel
-    .findById(quizID)
+    .findById(inputData.quizID)
     .then((data) => {
       if (!data)
-        res.status(404).json({ message: "No Quiz found with id " + quizID });
+        res
+          .status(404)
+          .json({ message: "No Quiz found with id " + inputData.quizID });
       else res.json(data);
     })
     .catch((err) => {
       res
         .status(500)
-        .json({ message: "Error retrieving Quiz with id=" + quizID });
+        .json({ message: "Error retrieving Quiz with id=" + inputData.quizID });
     });
   //Ok now do create correspendance
-  studentQuizModel
+  console.log("***" + studentQuizModel instanceof mongoose.Schema);
+  inputData
     .save()
     .then((data) => {
       res.json(data);

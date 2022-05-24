@@ -16,11 +16,11 @@ module.exports = (mongoose) => {
           type: Number,
           require: [true, "A quiz passed? without score? seriously?"],
         },
-        student: {
+        studentID: {
           type: mongoose.Schema.Types.ObjectId,
           ref: "student",
         },
-        quiz: {
+        quizID: {
           type: mongoose.Schema.Types.ObjectId,
           ref: "quiz",
         },

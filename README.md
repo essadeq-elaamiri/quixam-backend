@@ -103,16 +103,54 @@ After clonning the repository, and from inside run:
     - router.post("/:id/student", quizController.addStudentToQuiz); // tested
     - router.post("/:id/question", quizController.addQuestionToQuiz); // tested
   - student_quiz \*new
-    - router.post("/", studentQuizController.setQuizToStudent);
+    - router.post("/", studentQuizController.setQuizToStudent); // tested
     - router.get("/", studentQuizController.findAll);
     - router.get("/:id", studentQuizController.findOne);
     - router.put("/:id", studentQuizController.update);
     - router.delete("/:id", studentQuizController.delete);
     - router.delete("/", studentQuizController.deleteAll);
-    - router.get("/student/:studentID",studentQuizController.getStudentQuizAssociationsByStudent);
-    - router.get("/quiz/:quizID",studentQuizController.getStudentQuizAssociationsByQuiz);
+    - router.get("/student/:studentID",studentQuizController.getStudentQuizAssociationsByStudent); // tested
+    - router.get("/quiz/:quizID",studentQuizController.getStudentQuizAssociationsByQuiz); // tested
 
 ---
+
+**Schemas**
+student_quiz
+
+```js
+{
+  passedAt: {
+    type: Date,
+    required: [true, "Must set quiz passing date!"],
+  },
+  duration: {
+    type: Number,
+    require: false, // just to not be hard to deal with
+  },
+  score: {
+    type: Number,
+    require: [true, "A quiz passed? without score? seriously?"],
+  },
+  studentID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "student",
+  },
+  quizID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "quiz",
+  },
+},
+
+// json
+
+{
+  "passedAt":  "2022-01-05" ,
+  "duration": 12,
+  "score": 12,
+  "studentID": "",
+  "quizID": ""
+}
+```
 
 to do
 
