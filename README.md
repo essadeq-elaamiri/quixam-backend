@@ -36,9 +36,10 @@
 
 **Run server**
 After clonning the repository, and from inside run:
-`npm start-app` // start server
+`npm run start-app` // start server (server run on port: 8000)
 
 **Endpoints**:
+@ localhost:8000
 
 - /api/
 
