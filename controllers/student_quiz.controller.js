@@ -175,3 +175,68 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
+
+exports.getStudentQuizAssociationsByStudent = (req, res) => {
+  const studentIDIn = req.params.studentID;
+  let page = req.query.page ? req.query.page : 0;
+  let size = req.query.size ? req.query.size : 5;
+  studentQuizModel
+    .find({ studentID: studentIDIn }, null, { skip: page * size, limit: size })
+    .then((data) => {
+      studentQuizModel
+        .count({})
+        .then((count) => {
+          const _data = { data: data };
+          _data.page = page;
+          _data.coutPerPage = size;
+          _data.total = count;
+
+          res.json(_data);
+        })
+        .catch((err) => {
+          res.status(500).json({
+            message:
+              err.message || "Some error occurred while counting records.",
+          });
+        });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message:
+          err.message ||
+          "Some error occurred while retrieving the Quizes list.",
+      });
+    });
+};
+exports.getStudentQuizAssociationsByQuiz = (req, res) => {
+  const quizIDIn = req.params.quizID;
+  let page = req.query.page ? req.query.page : 0;
+  let size = req.query.size ? req.query.size : 5;
+  studentQuizModel
+    .find({ quizID: quizIDIn }, null, { skip: page * size, limit: size })
+    .then((data) => {
+      studentQuizModel
+        .count({})
+        .then((count) => {
+          const _data = { data: data };
+          _data.page = page;
+          _data.coutPerPage = size;
+          _data.total = count;
+
+          res.json(_data);
+        })
+        .catch((err) => {
+          res.status(500).json({
+            message:
+              err.message || "Some error occurred while counting records.",
+          });
+        });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message:
+          err.message ||
+          "Some error occurred while retrieving the Quizes list.",
+      });
+    });
+};

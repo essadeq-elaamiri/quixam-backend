@@ -109,6 +109,8 @@ After clonning the repository, and from inside run:
     - router.put("/:id", studentQuizController.update);
     - router.delete("/:id", studentQuizController.delete);
     - router.delete("/", studentQuizController.deleteAll);
+    - router.get("/student/:studentID",studentQuizController.getStudentQuizAssociationsByStudent);
+    - router.get("/quiz/:quizID",studentQuizController.getStudentQuizAssociationsByQuiz);
 
 ---
 

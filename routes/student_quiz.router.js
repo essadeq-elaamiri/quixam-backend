@@ -14,6 +14,15 @@ module.exports = (app) => {
   // Create  new
   router.delete("/", studentQuizController.deleteAll);
 
+  router.get(
+    "/student/:studentID",
+    studentQuizController.getStudentQuizAssociationsByStudent
+  );
+  router.get(
+    "/quiz/:quizID",
+    studentQuizController.getStudentQuizAssociationsByQuiz
+  );
+
   app.use("/api/student_quiz", router);
 };
 
