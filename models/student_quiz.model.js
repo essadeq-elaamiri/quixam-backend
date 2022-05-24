@@ -12,7 +12,7 @@ module.exports = (mongoose) => {
           type: Number,
           require: false, // just to not be hard to deal with
         },
-        scorp: {
+        score: {
           type: Number,
           require: [true, "A quiz passed? without score? seriously?"],
         },

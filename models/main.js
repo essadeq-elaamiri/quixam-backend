@@ -15,5 +15,6 @@ db.questionModel = require("./question.model")(mongoose);
 db.answerModel = require("./answer.model")(mongoose);
 db.quizModel = require("./quiz.model")(mongoose);
 db.studentModel = require("./student.model")(mongoose);
+db.studentQuizModel = require("./student_quiz.model")(mongoose);
 
 module.exports = db;

@@ -183,7 +183,9 @@ exports.addQuizToStudent = (req, res) => {
   }
   // TODO: __
   // validate student
-  const id = req.params.id;
+  const id = req.params.id; // student ID
+  // So we should retrieve the Quiz data from the body.
+
   studentModel
     .findByIdAndUpdate(
       id,

@@ -34,11 +34,12 @@
 
 to do
 
-- [ ] associations
+- [x] associations
 - [ ] JWT authentication
 - [ ] more validation before adding associated models
 
-Ok, just realized that no need for student_quiz model, we ca just add the attributes to the quizes list in student model
+~~Ok, just realized that no need for student_quiz model, we ca just add the attributes to the quizes list in student model~~ `overshit`
 
-- [x] Add quiz details to student model.
-- [] Edit Quiz Controller
+- [x] Add student_quiz model
+- [] Handel student_quiz Controller
+- [] test routes
