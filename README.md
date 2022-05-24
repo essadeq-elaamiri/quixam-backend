@@ -41,5 +41,6 @@ to do
 ~~Ok, just realized that no need for student_quiz model, we ca just add the attributes to the quizes list in student model~~ `overshit`
 
 - [x] Add student_quiz model
-- [] Handel student_quiz Controller
-- [] test routes
+- [x] Handle student_quiz Controller
+- [x] Handling student_quiz Router (basic).
+- [ ] test routes

@@ -37,6 +37,7 @@ module.exports = (mongoose) => {
         quizes: [
           {
             type: mongoose.Schema.Types.ObjectId,
+            //ref: "studentQuiz",
             ref: "quiz",
           },
         ],
